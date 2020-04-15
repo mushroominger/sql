@@ -18,7 +18,8 @@ items.unit_price * order_detail.order_quantity 小計,
     JOIN items
     USING(item_cd)
     /* ON order_detail.item_cd = items.item_cd */
-    WHERE orders.order_no = order_detail.order_no
+    ORDER BY order_detail.order_no
+    HAVING orders.order_no = order_detail.order_no
 ) 注文合計
 FROM orders
 JOIN order_detail
